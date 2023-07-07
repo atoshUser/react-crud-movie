@@ -28,7 +28,7 @@ body {
 }
 
 .app {
-  padding-top: 200px;
+  padding-top: 150px;
 }
 
 .wrapper-form {
@@ -37,4 +37,5 @@ body {
   padding: 35px;
   gap: 15px;
   background-color: rgba(211, 211, 211, 0.7);
+  margin-bottom: 35px;
 }

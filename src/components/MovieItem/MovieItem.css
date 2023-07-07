@@ -1,0 +1,32 @@
+.movie-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  font-size: 25px;
+  color: #333;
+}
+.movie-item:not(:last-child) {
+  border-bottom: 2px solid #222;
+}
+
+.wrapper-controller {
+  display: flex;
+  gap: 15px;
+}
+
+.heart,
+.finger,
+.trash {
+  cursor: pointer;
+}
+
+.heart {
+  color: crimson;
+}
+.finger {
+  color: orange;
+}
+.trash {
+  color: black;
+}

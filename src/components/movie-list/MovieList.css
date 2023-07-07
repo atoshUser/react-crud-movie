@@ -1,0 +1,7 @@
+.movie-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  background-color: rgba(211, 211, 211, 0.7);
+  margin-bottom: 35px;
+}
