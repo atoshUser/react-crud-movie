@@ -4,5 +4,12 @@
   gap: 15px;
   padding: 25px;
   background-color: rgba(211, 211, 211, 0.7);
-  box-shadow: 3px 4px 12px 4px rgb(167, 163, 163);
+
+  margin-bottom: 35px;
+}
+
+.app-info h2,
+h3 {
+  color: #222;
+  font-size: 25px;
 }

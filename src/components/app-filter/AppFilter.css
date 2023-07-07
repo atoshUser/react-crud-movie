@@ -1,0 +1,21 @@
+.active {
+  background-color: #333;
+  color: white;
+}
+
+.btn {
+  padding: 7px;
+  font-size: 22px;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:not(:first-child) {
+  border-left: 1px solid #333;
+}
+
+.btn:hover {
+  background-color: #333;
+  color: white;
+}
