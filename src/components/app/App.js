@@ -11,6 +11,7 @@ class App extends Component {
         { id: 2, text: "Elon musk", views: "20", isLiked: true },
         { id: 3, text: "Iron man 2", views: "15", isLiked: false },
       ],
+      term: "",
     };
   }
   trashHandler = (id) => {
@@ -39,17 +40,34 @@ class App extends Component {
       };
     });
   };
+
+  updateSearchHandler = (data, term) => {
+    if (term.length === 0) {
+      return data;
+    } else {
+      return data.filter((obj) => obj.text.toLowerCase().includes(term));
+    }
+  };
+
+  updateTerm = (text) => {
+    const newText = text.toLowerCase();
+    this.setState({
+      term: newText,
+    });
+  };
   render() {
+    const { data, term } = this.state;
+    const updateTerm = this.updateSearchHandler(data, term);
     return (
       <div className="container app">
         <AppInfo data={this.state.data} />
         <div className="wrapper-form">
-          <SearchPanel />
+          <SearchPanel updateTerm={this.updateTerm} />
           <AppFilter />
         </div>
         <div className="movie_list">
           <MovieList
-            data={this.state.data}
+            data={updateTerm}
             trashHandler={this.trashHandler}
             handlerLiked={this.handlerLiked}
           />

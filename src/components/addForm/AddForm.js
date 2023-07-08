@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component, createRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./AddForm.css";
 
@@ -9,6 +9,7 @@ class AddForm extends Component {
       name: "",
       views: "",
     };
+    this.inputRef = createRef();
   }
   changeHandler = (e) => {
     this.setState({
@@ -27,6 +28,7 @@ class AddForm extends Component {
       name: "",
       views: "",
     });
+    this.inputRef.current.focus();
   };
 
   render() {
@@ -42,6 +44,7 @@ class AddForm extends Component {
             value={name}
             onChange={this.changeHandler}
             autoComplete="off"
+            ref={this.inputRef}
           />
           <input
             type="text"
