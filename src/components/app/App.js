@@ -12,6 +12,7 @@ class App extends Component {
         { id: 3, text: "Iron man 2", views: "15", isLiked: false },
       ],
       term: "",
+      filter: "",
     };
   }
   trashHandler = (id) => {
@@ -33,6 +34,7 @@ class App extends Component {
       };
     });
   };
+
   addFormObj = (obj) => {
     this.setState(({ data }) => {
       return {
@@ -55,19 +57,37 @@ class App extends Component {
       term: newText,
     });
   };
+
+  filterData = (data, filter) => {
+    switch (filter) {
+      case "liked":
+        return data.filter((obj) => obj.isLiked);
+      case "mostView":
+        return data.filter((obj) => obj.views > 500);
+      default:
+        return data;
+    }
+  };
+
+  updateFilter = (text) => {
+    this.setState({
+      filter: text,
+    });
+  };
+
   render() {
-    const { data, term } = this.state;
-    const updateTerm = this.updateSearchHandler(data, term);
+    const { data, term, filter } = this.state;
+    const updateTermV = this.updateSearchHandler(data, term);
     return (
       <div className="container app">
         <AppInfo data={this.state.data} />
         <div className="wrapper-form">
           <SearchPanel updateTerm={this.updateTerm} />
-          <AppFilter />
+          <AppFilter updateFilter={this.updateFilter} />
         </div>
         <div className="movie_list">
           <MovieList
-            data={updateTerm}
+            data={this.filterData(updateTermV, filter)}
             trashHandler={this.trashHandler}
             handlerLiked={this.handlerLiked}
           />
