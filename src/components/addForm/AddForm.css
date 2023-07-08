@@ -16,10 +16,6 @@
   font-size: 18px;
 }
 
-.wrapper-input .input:first-child {
-  border-top: none;
-}
-
 .wrapper-input button {
   display: flex;
   align-items: center;

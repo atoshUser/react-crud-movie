@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
   padding: 10px;
   font-size: 25px;
   color: #333;
@@ -17,7 +18,8 @@
 
 .heart,
 .finger,
-.trash {
+.trash,
+.check {
   cursor: pointer;
 }
 
@@ -29,4 +31,9 @@
 }
 .trash {
   color: black;
+}
+
+.viewrs {
+  position: absolute;
+  right: 30%;
 }

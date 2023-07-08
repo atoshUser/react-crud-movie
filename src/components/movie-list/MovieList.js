@@ -3,10 +3,17 @@ import { MovieItem } from "../index";
 import "./MovieList.css";
 class MovieList extends Component {
   render() {
+    const { data, trashHandler, handlerLiked } = this.props;
     return (
       <ul className="movie-list">
-        <MovieItem />
-        <MovieItem />
+        {data.map((item) => (
+          <MovieItem
+            key={item.id}
+            {...item}
+            trashHandler={() => trashHandler(item.id)}
+            handlerLiked={() => handlerLiked(item.id)}
+          />
+        ))}
       </ul>
     );
   }
